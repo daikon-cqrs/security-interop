@@ -1,17 +1,17 @@
 <?php declare(strict_types=1);
 /**
- * This file is part of the oroshi/security-interop project.
+ * This file is part of the daikon-cqrs/security-interop project.
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-namespace Oroshi\Security\Authorization;
+namespace Daikon\Security\Authorization;
 
 use Auryn\Injector;
+use Daikon\Boot\Service\ServiceDefinitionInterface;
+use Daikon\Boot\Service\Provisioner\ProvisionerInterface;
 use Daikon\Config\ConfigProviderInterface;
-use Oroshi\Core\Service\ServiceDefinitionInterface;
-use Oroshi\Core\Service\Provisioner\ProvisionerInterface;
 use Zend\Permissions\Acl\Acl;
 use Zend\Permissions\Acl\Assertion\AssertionInterface;
 use Zend\Permissions\Acl\Assertion\ExpressionAssertion;
