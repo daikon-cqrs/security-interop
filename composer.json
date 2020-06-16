@@ -9,8 +9,9 @@
     "minimum-stability": "dev",
     "require": {
         "php": "^7.4",
-        "beberlei/assert": "^v3.0",
         "daikon/boot": "master@dev",
+        "daikon/config": "master@dev",
+        "daikon/interop": "master@dev",
         "firebase/php-jwt": "^v5.0",
         "zendframework/zend-permissions-acl": "^2.7"
     },

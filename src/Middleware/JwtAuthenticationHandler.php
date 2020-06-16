@@ -8,10 +8,10 @@
 
 namespace Daikon\Security\Middleware;
 
-use Assert\Assertion;
 use Daikon\Boot\Middleware\Action\SecureActionInterface;
 use Daikon\Boot\Middleware\RoutingHandler;
 use Daikon\Config\ConfigProviderInterface;
+use Daikon\Interop\Assertion;
 use Daikon\Security\Authentication\AuthenticatorInterface;
 use Daikon\Security\Authentication\JwtAuthenticationServiceInterface;
 use Fig\Http\Message\StatusCodeInterface;
