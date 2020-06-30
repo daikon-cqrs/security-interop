@@ -9,14 +9,12 @@
 namespace Daikon\Security\Middleware;
 
 use Daikon\Config\ConfigProviderInterface;
-use Firebase\JWT\BeforeValidException;
-use Firebase\JWT\ExpiredException;
 use Firebase\JWT\JWT;
-use Firebase\JWT\SignatureInvalidException;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
+use UnexpectedValueException;
 
 final class JwtDecoder implements MiddlewareInterface
 {
@@ -39,8 +37,7 @@ final class JwtDecoder implements MiddlewareInterface
         $xsrfHeader = $authConfig['xsrf']['header'] ?? self::DEFAULT_HEADER_XSRF;
 
         $cookieParams = $request->getCookieParams();
-        $encodedJwt = $cookieParams[$jwtAttribute]
-            ?? $this->parseAuthHeader($request->getHeaderLine('Authorization'));
+        $encodedJwt = $cookieParams[$jwtAttribute] ?? $this->parseAuthHeader($request->getHeaderLine('Authorization'));
         $xsrfToken = $cookieParams[$xsrfAttribute] ?? $request->getHeaderLine($xsrfHeader);
 
         $decodedJwt = null;
@@ -48,9 +45,9 @@ final class JwtDecoder implements MiddlewareInterface
             $decodedJwt = $this->decodeJwt($encodedJwt);
         }
 
-        return $handler->handle($request
-            ->withAttribute($jwtAttribute, $decodedJwt)
-            ->withAttribute($xsrfAttribute, $xsrfToken));
+        return $handler->handle(
+            $request->withAttribute($jwtAttribute, $decodedJwt)->withAttribute($xsrfAttribute, $xsrfToken)
+        );
     }
 
     private function decodeJwt(string $jwt): ?object
@@ -58,20 +55,15 @@ final class JwtDecoder implements MiddlewareInterface
         $secretKey = $this->config->get('project.authentication.jwt.secret', 'daikon');
         try {
             return JWT::decode($jwt, $secretKey, ['HS256']);
-        } catch (BeforeValidException $err) {
-            return null;
-        } catch (ExpiredException $err) {
-            return null;
-        } catch (SignatureInvalidException $err) {
+        } catch (UnexpectedValueException $error) {
             return null;
         }
     }
 
-    private static function parseAuthHeader(string $header): ?string
+    private function parseAuthHeader(string $header): ?string
     {
-        if (preg_match('/Bearer ([\w\.\-_]+)/', $header, $matches)) {
-            return trim($matches[1]);
-        }
-        return null;
+        return preg_match('/^Bearer\s+(?<token>[a-z0-9\._-]+)$/i', $header, $matches)
+            ? $matches['token']
+            : null;
     }
 }
