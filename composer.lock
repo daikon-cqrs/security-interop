@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "acfc1d0ff90962e8c854f925f6d6d88d",
+    "content-hash": "4bc14c01d1c763def6a519b7f919dba6",
     "packages": [
         {
             "name": "aura/router",
@@ -224,12 +224,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/daikon-cqrs/boot.git",
-                "reference": "4ada848ed8bcfc51e68f596a823fd6eed469bd6c"
+                "reference": "23e2537db626512b5e79c5baf12c084df0acd0e7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/daikon-cqrs/boot/zipball/4ada848ed8bcfc51e68f596a823fd6eed469bd6c",
-                "reference": "4ada848ed8bcfc51e68f596a823fd6eed469bd6c",
+                "url": "https://api.github.com/repos/daikon-cqrs/boot/zipball/23e2537db626512b5e79c5baf12c084df0acd0e7",
+                "reference": "23e2537db626512b5e79c5baf12c084df0acd0e7",
                 "shasum": ""
             },
             "require": {
@@ -246,7 +246,7 @@
                 "daikon/value-object": "master@dev",
                 "danielstjules/stringy": "^3.1",
                 "fig/http-message-util": "^1.1",
-                "franzl/whoops-middleware": "^1.2",
+                "franzl/whoops-middleware": "master@dev",
                 "middlewares/cors": "^v2.0",
                 "middlewares/negotiation": "^v2.0",
                 "middlewares/request-handler": "^v2.0",
@@ -284,7 +284,7 @@
                 "event-sourcing",
                 "middleware"
             ],
-            "time": "2020-06-13T19:18:03+00:00"
+            "time": "2020-06-30T21:51:03+00:00"
         },
         {
             "name": "daikon/config",
@@ -1298,24 +1298,24 @@
         },
         {
             "name": "franzl/whoops-middleware",
-            "version": "1.2.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/franzliedke/whoops-middleware.git",
-                "reference": "040df4c8b59fdf0e4def28810d97b5a3723c5e92"
+                "url": "https://github.com/MrHash/whoops-middleware.git",
+                "reference": "a03b867ee8d7ffe5baf444ede164190db47d0047"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/franzliedke/whoops-middleware/zipball/040df4c8b59fdf0e4def28810d97b5a3723c5e92",
-                "reference": "040df4c8b59fdf0e4def28810d97b5a3723c5e92",
+                "url": "https://api.github.com/repos/MrHash/whoops-middleware/zipball/a03b867ee8d7ffe5baf444ede164190db47d0047",
+                "reference": "a03b867ee8d7ffe5baf444ede164190db47d0047",
                 "shasum": ""
             },
             "require": {
                 "filp/whoops": "^1.1 || ^2.0",
-                "zendframework/zend-diactoros": "^1.1.0 || ^2.0"
+                "middlewares/utils": "^3.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "7.0.*",
+                "phpunit/phpunit": "^7.0",
                 "psr/http-server-middleware": "^1.0"
             },
             "suggest": {
@@ -1327,12 +1327,19 @@
                     "Franzl\\Middleware\\Whoops\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "Franzl\\Middleware\\Whoops\\Test\\": "tests/"
+                }
+            },
             "license": [
                 "MIT"
             ],
             "description": "PSR-15 compatible middleware for Whoops, the pretty error handler",
-            "time": "2020-01-07T23:33:59+00:00"
+            "support": {
+                "source": "https://github.com/MrHash/whoops-middleware/tree/master"
+            },
+            "time": "2020-06-30T21:05:18+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -1557,6 +1564,117 @@
             ],
             "description": "A library for easily creating recursive-descent parsers.",
             "time": "2012-11-18T18:08:43+00:00"
+        },
+        {
+            "name": "laminas/laminas-permissions-acl",
+            "version": "2.7.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laminas/laminas-permissions-acl.git",
+                "reference": "624567fe376a70e0bfb5aa8217d5afa13b9d6e61"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laminas/laminas-permissions-acl/zipball/624567fe376a70e0bfb5aa8217d5afa13b9d6e61",
+                "reference": "624567fe376a70e0bfb5aa8217d5afa13b9d6e61",
+                "shasum": ""
+            },
+            "require": {
+                "laminas/laminas-zendframework-bridge": "^1.0",
+                "php": "^5.6 || ^7.0"
+            },
+            "replace": {
+                "zendframework/zend-permissions-acl": "self.version"
+            },
+            "require-dev": {
+                "laminas/laminas-coding-standard": "~1.0.0",
+                "laminas/laminas-servicemanager": "^2.7.5 || ^3.0.3",
+                "phpunit/phpunit": "^5.7.27 || ^6.5.8 || ^7.1.5"
+            },
+            "suggest": {
+                "laminas/laminas-servicemanager": "To support Laminas\\Permissions\\Acl\\Assertion\\AssertionManager plugin manager usage"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.7.x-dev",
+                    "dev-develop": "2.8.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laminas\\Permissions\\Acl\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "Provides a lightweight and flexible access control list (ACL) implementation for privileges management",
+            "homepage": "https://laminas.dev",
+            "keywords": [
+                "acl",
+                "laminas"
+            ],
+            "time": "2019-12-31T17:37:23+00:00"
+        },
+        {
+            "name": "laminas/laminas-zendframework-bridge",
+            "version": "1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laminas/laminas-zendframework-bridge.git",
+                "reference": "fcd87520e4943d968557803919523772475e8ea3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laminas/laminas-zendframework-bridge/zipball/fcd87520e4943d968557803919523772475e8ea3",
+                "reference": "fcd87520e4943d968557803919523772475e8ea3",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.6 || ^7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7 || ^6.5 || ^7.5 || ^8.1",
+                "squizlabs/php_codesniffer": "^3.5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev",
+                    "dev-develop": "1.1.x-dev"
+                },
+                "laminas": {
+                    "module": "Laminas\\ZendFrameworkBridge"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/autoload.php"
+                ],
+                "psr-4": {
+                    "Laminas\\ZendFrameworkBridge\\": "src//"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "Alias legacy ZF class names to Laminas Project equivalents.",
+            "keywords": [
+                "ZendFramework",
+                "autoloading",
+                "laminas",
+                "zf"
+            ],
+            "funding": [
+                {
+                    "url": "https://funding.communitybridge.org/projects/laminas-project",
+                    "type": "community_bridge"
+                }
+            ],
+            "time": "2020-05-20T16:45:56+00:00"
         },
         {
             "name": "league/flysystem",
@@ -4080,124 +4198,6 @@
                 "negotiation"
             ],
             "time": "2017-05-14T17:21:12+00:00"
-        },
-        {
-            "name": "zendframework/zend-diactoros",
-            "version": "2.2.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/zendframework/zend-diactoros.git",
-                "reference": "de5847b068362a88684a55b0dbb40d85986cfa52"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-diactoros/zipball/de5847b068362a88684a55b0dbb40d85986cfa52",
-                "reference": "de5847b068362a88684a55b0dbb40d85986cfa52",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.1",
-                "psr/http-factory": "^1.0",
-                "psr/http-message": "^1.0"
-            },
-            "provide": {
-                "psr/http-factory-implementation": "1.0",
-                "psr/http-message-implementation": "1.0"
-            },
-            "require-dev": {
-                "ext-curl": "*",
-                "ext-dom": "*",
-                "ext-libxml": "*",
-                "http-interop/http-factory-tests": "^0.5.0",
-                "php-http/psr7-integration-tests": "dev-master",
-                "phpunit/phpunit": "^7.0.2",
-                "zendframework/zend-coding-standard": "~1.0.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.1.x-dev",
-                    "dev-develop": "2.2.x-dev",
-                    "dev-release-1.8": "1.8.x-dev"
-                }
-            },
-            "autoload": {
-                "files": [
-                    "src/functions/create_uploaded_file.php",
-                    "src/functions/marshal_headers_from_sapi.php",
-                    "src/functions/marshal_method_from_sapi.php",
-                    "src/functions/marshal_protocol_version_from_sapi.php",
-                    "src/functions/marshal_uri_from_sapi.php",
-                    "src/functions/normalize_server.php",
-                    "src/functions/normalize_uploaded_files.php",
-                    "src/functions/parse_cookie_header.php"
-                ],
-                "psr-4": {
-                    "Zend\\Diactoros\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "description": "PSR HTTP Message implementations",
-            "keywords": [
-                "http",
-                "psr",
-                "psr-7"
-            ],
-            "abandoned": "laminas/laminas-diactoros",
-            "time": "2019-11-13T19:16:13+00:00"
-        },
-        {
-            "name": "zendframework/zend-permissions-acl",
-            "version": "2.7.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/zendframework/zend-permissions-acl.git",
-                "reference": "1323e30a9357e6f6956f63d97faf7e8c8db1f4f8"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-permissions-acl/zipball/1323e30a9357e6f6956f63d97faf7e8c8db1f4f8",
-                "reference": "1323e30a9357e6f6956f63d97faf7e8c8db1f4f8",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^5.6 || ^7.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^5.7.27 || ^6.5.8 || ^7.1.5",
-                "zendframework/zend-coding-standard": "~1.0.0",
-                "zendframework/zend-servicemanager": "^2.7.5 || ^3.0.3"
-            },
-            "suggest": {
-                "zendframework/zend-servicemanager": "To support Zend\\Permissions\\Acl\\Assertion\\AssertionManager plugin manager usage"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.7.x-dev",
-                    "dev-develop": "2.8.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Zend\\Permissions\\Acl\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "description": "Provides a lightweight and flexible access control list (ACL) implementation for privileges management",
-            "keywords": [
-                "ZendFramework",
-                "acl",
-                "zf"
-            ],
-            "abandoned": "laminas/laminas-permissions-acl",
-            "time": "2019-06-25T08:09:22+00:00"
         }
     ],
     "packages-dev": [

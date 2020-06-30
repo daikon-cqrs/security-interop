@@ -12,11 +12,11 @@ use Auryn\Injector;
 use Daikon\Boot\Service\ServiceDefinitionInterface;
 use Daikon\Boot\Service\Provisioner\ProvisionerInterface;
 use Daikon\Config\ConfigProviderInterface;
-use Zend\Permissions\Acl\Acl;
-use Zend\Permissions\Acl\Assertion\AssertionInterface;
-use Zend\Permissions\Acl\Assertion\ExpressionAssertion;
+use Laminas\Permissions\Acl\Acl;
+use Laminas\Permissions\Acl\Assertion\AssertionInterface;
+use Laminas\Permissions\Acl\Assertion\ExpressionAssertion;
 
-final class ZendAclProvisioner implements ProvisionerInterface
+final class LaminasAclProvisioner implements ProvisionerInterface
 {
     public function provision(
         Injector $injector,

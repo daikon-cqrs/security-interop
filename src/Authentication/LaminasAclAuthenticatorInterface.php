@@ -8,8 +8,8 @@
 
 namespace Daikon\Security\Authentication;
 
-use Zend\Permissions\Acl\Role\RoleInterface;
+use Laminas\Permissions\Acl\Role\RoleInterface;
 
-interface ZendAclAuthenticatorInterface extends AuthenticatorInterface, RoleInterface
+interface LaminasAclAuthenticatorInterface extends AuthenticatorInterface, RoleInterface
 {
 }

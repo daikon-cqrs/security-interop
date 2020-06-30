@@ -8,11 +8,11 @@
 
 namespace Daikon\Security\Authorization;
 
-use Zend\Permissions\Acl\AclInterface;
-use Zend\Permissions\Acl\Resource\ResourceInterface;
-use Zend\Permissions\Acl\Role\RoleInterface;
+use Laminas\Permissions\Acl\AclInterface;
+use Laminas\Permissions\Acl\Resource\ResourceInterface;
+use Laminas\Permissions\Acl\Role\RoleInterface;
 
-final class ZendAclService implements AuthorizationServiceInterface
+final class LaminasAclService implements AuthorizationServiceInterface
 {
     private AclInterface $acl;
 

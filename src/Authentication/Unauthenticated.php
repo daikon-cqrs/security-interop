@@ -8,7 +8,7 @@
 
 namespace Daikon\Security\Authentication;
 
-final class Unauthenticated implements ZendAclAuthenticatorInterface
+final class Unauthenticated implements LaminasAclAuthenticatorInterface
 {
     public function getRoleId(): string
     {
