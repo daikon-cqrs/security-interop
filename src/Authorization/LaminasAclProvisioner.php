@@ -44,7 +44,6 @@ final class LaminasAclProvisioner implements ProvisionerInterface
                         $this->registerRules($acl, Acl::TYPE_ALLOW, $allows, $roles, $resource);
                         $this->registerRules($acl, Acl::TYPE_DENY, $denies, $roles, $resource);
                     }
-                    /** @var AuthorizationServiceInterface */
                     return new $className($acl);
                 }
             );
