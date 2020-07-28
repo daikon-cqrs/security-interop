@@ -8,12 +8,13 @@
 
 namespace Daikon\Security\Middleware;
 
-use Daikon\Boot\Middleware\Action\SecureActionInterface;
 use Daikon\Boot\Middleware\RoutingHandler;
 use Daikon\Config\ConfigProviderInterface;
 use Daikon\Interop\Assertion;
 use Daikon\Security\Authentication\AuthenticatorInterface;
 use Daikon\Security\Authentication\JwtAuthenticationServiceInterface;
+use Daikon\Security\Exception\AuthenticationException;
+use Daikon\Security\Middleware\Action\SecureActionInterface;
 use Fig\Http\Message\StatusCodeInterface;
 use Middlewares\Utils\Factory;
 use Psr\Http\Message\ResponseInterface;
@@ -50,25 +51,28 @@ final class JwtAuthenticationHandler implements MiddlewareInterface, StatusCodeI
         $jwt = $request->getAttribute($jwtAttribute);
         $xsrfToken = $request->getAttribute($xsrfAttribute);
 
-        if ($this->isSecure($request)) {
-            if (!$jwt) {
-                return $this->buildResponse(self::STATUS_FORBIDDEN, 'Missing JWT.');
-            }
-            if (!$xsrfToken) {
-                return $this->buildResponse(self::STATUS_FORBIDDEN, 'Missing XSRF token.');
-            }
-        }
-
-        if ($jwt) {
-            if (!$jwt->uid) {
-                return $this->buildResponse(self::STATUS_FORBIDDEN, 'Invalid JWT.');
-            }
-            if ($jwt->xsrf !== $xsrfToken) {
-                return $this->buildResponse(self::STATUS_UNAUTHORIZED, 'XSRF token does not match JWT.');
+        try {
+            if ($this->isSecure($request)) {
+                if (!$jwt) {
+                    throw new AuthenticationException('Missing JWT.');
+                }
+                if (!$xsrfToken) {
+                    throw new AuthenticationException('Missing XSRF token.');
+                }
             }
 
-            /** @var AuthenticatorInterface $authenticator */
-            $authenticator = $this->authenticationService->authenticateJWT($jwt->uid, $jwt->jti, $jwt->xsrf);
+            if ($jwt) {
+                if (!$jwt->uid || !$jwt->jti) {
+                    throw new AuthenticationException('Invalid JWT.');
+                }
+                if ($jwt->xsrf !== $xsrfToken) {
+                    throw new AuthenticationException('XSRF token does not match JWT.');
+                }
+                /** @var AuthenticatorInterface $authenticator */
+                $authenticator = $this->authenticationService->authenticateJWT($jwt->uid, $jwt->jti, $jwt->xsrf);
+            }
+        } catch (AuthenticationException $error) {
+            return Factory::createResponse(self::STATUS_UNAUTHORIZED);
         }
 
         return $handler->handle(
@@ -78,18 +82,9 @@ final class JwtAuthenticationHandler implements MiddlewareInterface, StatusCodeI
 
     private function isSecure(ServerRequestInterface $request): bool
     {
-        $requestHandler = $request->getAttribute(RoutingHandler::ATTR_HANDLER);
-        return !empty($requestHandler) && $requestHandler instanceof SecureActionInterface
+        $requestHandler = $request->getAttribute(RoutingHandler::ATTR_REQUEST_HANDLER);
+        return $requestHandler instanceof SecureActionInterface
             ? $requestHandler->isSecure()
             : false;
-    }
-
-    private function buildResponse(int $code, string $message = null): ResponseInterface
-    {
-        $response = Factory::createResponse($code);
-        if (!empty($message)) {
-            $response->getBody()->write(json_encode(['message' => $message]));
-        }
-        return $response;
     }
 }

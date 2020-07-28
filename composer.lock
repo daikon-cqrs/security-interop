@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4bc14c01d1c763def6a519b7f919dba6",
+    "content-hash": "cfcc4251364c62d9ed20e49f6ee4c1d7",
     "packages": [
         {
             "name": "aura/router",
@@ -224,12 +224,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/daikon-cqrs/boot.git",
-                "reference": "7bdb3a0346840b78a507fa42bffc266db6c331f4"
+                "reference": "f3fb8522a2e55b14388234b0baa8b72c28fc3048"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/daikon-cqrs/boot/zipball/7bdb3a0346840b78a507fa42bffc266db6c331f4",
-                "reference": "7bdb3a0346840b78a507fa42bffc266db6c331f4",
+                "url": "https://api.github.com/repos/daikon-cqrs/boot/zipball/f3fb8522a2e55b14388234b0baa8b72c28fc3048",
+                "reference": "f3fb8522a2e55b14388234b0baa8b72c28fc3048",
                 "shasum": ""
             },
             "require": {
@@ -259,6 +259,7 @@
                 "symfony/console": "^5.0"
             },
             "require-dev": {
+                "nikic/php-parser": "4.6.0",
                 "phpunit/phpunit": "^9.0",
                 "sebastian/phpcpd": "^5.0",
                 "squizlabs/php_codesniffer": "^3.3",
@@ -284,7 +285,7 @@
                 "event-sourcing",
                 "middleware"
             ],
-            "time": "2020-07-15T15:59:33+00:00"
+            "time": "2020-07-28T23:07:11+00:00"
         },
         {
             "name": "daikon/config",
@@ -428,12 +429,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/daikon-cqrs/dbal.git",
-                "reference": "0e1614413ed5be032d6f1b6a6b7a8d718c158b37"
+                "reference": "43d44e06bb0c77f03c173e5b2644ded37f5735b1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/daikon-cqrs/dbal/zipball/0e1614413ed5be032d6f1b6a6b7a8d718c158b37",
-                "reference": "0e1614413ed5be032d6f1b6a6b7a8d718c158b37",
+                "url": "https://api.github.com/repos/daikon-cqrs/dbal/zipball/43d44e06bb0c77f03c173e5b2644ded37f5735b1",
+                "reference": "43d44e06bb0c77f03c173e5b2644ded37f5735b1",
                 "shasum": ""
             },
             "require": {
@@ -466,7 +467,7 @@
                 "dbal",
                 "immutable"
             ],
-            "time": "2020-07-14T22:09:18+00:00"
+            "time": "2020-07-24T20:34:29+00:00"
         },
         {
             "name": "daikon/elasticsearch7-adapter",
@@ -876,12 +877,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/daikon-cqrs/value-object.git",
-                "reference": "3c05f787a8fd2292a90a9ebb1935cd72ba87cd17"
+                "reference": "9c72c1128137112b184f297b84c92697811f2ecb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/daikon-cqrs/value-object/zipball/3c05f787a8fd2292a90a9ebb1935cd72ba87cd17",
-                "reference": "3c05f787a8fd2292a90a9ebb1935cd72ba87cd17",
+                "url": "https://api.github.com/repos/daikon-cqrs/value-object/zipball/9c72c1128137112b184f297b84c92697811f2ecb",
+                "reference": "9c72c1128137112b184f297b84c92697811f2ecb",
                 "shasum": ""
             },
             "require": {
@@ -911,7 +912,7 @@
             "keywords": [
                 "value-object"
             ],
-            "time": "2020-07-14T20:44:05+00:00"
+            "time": "2020-07-24T20:29:24+00:00"
         },
         {
             "name": "danielstjules/stringy",
@@ -1680,16 +1681,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "1.0.69",
+            "version": "1.0.70",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "7106f78428a344bc4f643c233a94e48795f10967"
+                "reference": "585824702f534f8d3cf7fab7225e8466cc4b7493"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/7106f78428a344bc4f643c233a94e48795f10967",
-                "reference": "7106f78428a344bc4f643c233a94e48795f10967",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/585824702f534f8d3cf7fab7225e8466cc4b7493",
+                "reference": "585824702f534f8d3cf7fab7225e8466cc4b7493",
                 "shasum": ""
             },
             "require": {
@@ -1700,7 +1701,7 @@
                 "league/flysystem-sftp": "<1.0.6"
             },
             "require-dev": {
-                "phpspec/phpspec": "^3.4",
+                "phpspec/phpspec": "^3.4 || ^4.0 || ^5.0 || ^6.0",
                 "phpunit/phpunit": "^5.7.26"
             },
             "suggest": {
@@ -1766,7 +1767,7 @@
                     "type": "other"
                 }
             ],
-            "time": "2020-05-18T15:13:39+00:00"
+            "time": "2020-07-26T07:20:36+00:00"
         },
         {
             "name": "middlewares/cors",
@@ -2877,16 +2878,16 @@
         },
         {
             "name": "ramsey/uuid",
-            "version": "4.0.1",
+            "version": "4.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ramsey/uuid.git",
-                "reference": "ba8fff1d3abb8bb4d35a135ed22a31c6ef3ede3d"
+                "reference": "988dbefc7878d0a35f12afb4df1f7dd0bd153c43"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ramsey/uuid/zipball/ba8fff1d3abb8bb4d35a135ed22a31c6ef3ede3d",
-                "reference": "ba8fff1d3abb8bb4d35a135ed22a31c6ef3ede3d",
+                "url": "https://api.github.com/repos/ramsey/uuid/zipball/988dbefc7878d0a35f12afb4df1f7dd0bd153c43",
+                "reference": "988dbefc7878d0a35f12afb4df1f7dd0bd153c43",
                 "shasum": ""
             },
             "require": {
@@ -2901,7 +2902,7 @@
             },
             "require-dev": {
                 "codeception/aspect-mock": "^3",
-                "dealerdirect/phpcodesniffer-composer-installer": "^0.6.2",
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.6.2 || ^0.7.0",
                 "doctrine/annotations": "^1.8",
                 "goaop/framework": "^2",
                 "mockery/mockery": "^1.3",
@@ -2910,8 +2911,8 @@
                 "php-mock/php-mock-mockery": "^1.3",
                 "php-mock/php-mock-phpunit": "^2.5",
                 "php-parallel-lint/php-parallel-lint": "^1.1",
+                "phpbench/phpbench": "^0.17.1",
                 "phpstan/extension-installer": "^1.0",
-                "phpstan/phpdoc-parser": "0.4.3",
                 "phpstan/phpstan": "^0.12",
                 "phpstan/phpstan-mockery": "^0.12",
                 "phpstan/phpstan-phpunit": "^0.12",
@@ -2960,7 +2961,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-03-29T20:13:32+00:00"
+            "time": "2020-07-28T16:51:01+00:00"
         },
         {
             "name": "rdlowrey/auryn",
@@ -3129,16 +3130,16 @@
         },
         {
             "name": "symfony/console",
-            "version": "v5.1.2",
+            "version": "v5.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "34ac555a3627e324b660e318daa07572e1140123"
+                "reference": "2226c68009627934b8cfc01260b4d287eab070df"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/34ac555a3627e324b660e318daa07572e1140123",
-                "reference": "34ac555a3627e324b660e318daa07572e1140123",
+                "url": "https://api.github.com/repos/symfony/console/zipball/2226c68009627934b8cfc01260b4d287eab070df",
+                "reference": "2226c68009627934b8cfc01260b4d287eab070df",
                 "shasum": ""
             },
             "require": {
@@ -3218,7 +3219,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-06-15T12:59:21+00:00"
+            "time": "2020-07-06T13:23:11+00:00"
         },
         {
             "name": "symfony/deprecation-contracts",
@@ -3286,7 +3287,7 @@
         },
         {
             "name": "symfony/finder",
-            "version": "v5.1.2",
+            "version": "v5.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
@@ -4128,16 +4129,16 @@
         },
         {
             "name": "symfony/string",
-            "version": "v5.1.2",
+            "version": "v5.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/string.git",
-                "reference": "ac70459db781108db7c6d8981dd31ce0e29e3298"
+                "reference": "f629ba9b611c76224feb21fe2bcbf0b6f992300b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/string/zipball/ac70459db781108db7c6d8981dd31ce0e29e3298",
-                "reference": "ac70459db781108db7c6d8981dd31ce0e29e3298",
+                "url": "https://api.github.com/repos/symfony/string/zipball/f629ba9b611c76224feb21fe2bcbf0b6f992300b",
+                "reference": "f629ba9b611c76224feb21fe2bcbf0b6f992300b",
                 "shasum": ""
             },
             "require": {
@@ -4209,11 +4210,11 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-06-11T12:16:36+00:00"
+            "time": "2020-07-08T08:27:49+00:00"
         },
         {
             "name": "symfony/yaml",
-            "version": "v5.1.2",
+            "version": "v5.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",

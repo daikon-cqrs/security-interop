@@ -6,9 +6,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Daikon\Security\Authentication;
+namespace Daikon\Security\Exception;
 
-interface AuthenticationServiceInterface
+use Daikon\Interop\RuntimeException;
+
+class AuthorizationException extends RuntimeException
 {
-    public function authenticate(string $id, string $password): AuthenticatorInterface;
 }

@@ -6,10 +6,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Daikon\Security\Authentication;
+namespace Daikon\Security\Exception;
 
-use Laminas\Permissions\Acl\Role\RoleInterface;
+use Daikon\Interop\RuntimeException;
 
-interface LaminasAclAuthenticatorInterface extends AuthenticatorInterface, RoleInterface
+class AuthenticationException extends RuntimeException
 {
 }

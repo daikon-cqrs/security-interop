@@ -10,5 +10,5 @@ namespace Daikon\Security\Authentication;
 
 interface JwtAuthenticationServiceInterface extends AuthenticationServiceInterface
 {
-    public function authenticateJWT(string $id, string $jti, string $xsrf): ?AuthenticatorInterface;
+    public function authenticateJWT(string $id, string $jti, string $xsrf): AuthenticatorInterface;
 }

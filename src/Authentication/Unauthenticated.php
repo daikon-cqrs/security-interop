@@ -8,7 +8,9 @@
 
 namespace Daikon\Security\Authentication;
 
-final class Unauthenticated implements LaminasAclAuthenticatorInterface
+use Laminas\Permissions\Acl\Role\RoleInterface;
+
+class Unauthenticated implements AuthenticatorInterface, RoleInterface
 {
     public function getRoleId(): string
     {
