@@ -83,7 +83,7 @@ final class SecureActionHandler implements MiddlewareInterface, StatusCodeInterf
             try {
                 $request = $action($request);
             } catch (Exception $error) {
-                $this->logger->error($error->getMessage(), ['exception' => $error]);
+                $this->logger->error($error->getMessage(), ['trace' => $error->getTrace()]);
                 switch (true) {
                     case $error instanceof AssertionFailedException:
                         $statusCode = self::STATUS_UNPROCESSABLE_ENTITY;

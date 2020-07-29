@@ -9,6 +9,7 @@
 namespace Daikon\Security\Middleware;
 
 use Daikon\Config\ConfigProviderInterface;
+use Daikon\Interop\Assertion;
 use Firebase\JWT\JWT;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -40,10 +41,7 @@ final class JwtDecoder implements MiddlewareInterface
         $encodedJwt = $cookieParams[$jwtAttribute] ?? $this->parseAuthHeader($request->getHeaderLine('Authorization'));
         $xsrfToken = $cookieParams[$xsrfAttribute] ?? $request->getHeaderLine($xsrfHeader);
 
-        $decodedJwt = null;
-        if ($encodedJwt) {
-            $decodedJwt = $this->decodeJwt($encodedJwt);
-        }
+        $decodedJwt = $encodedJwt ? $this->decodeJwt($encodedJwt) : null;
 
         return $handler->handle(
             $request->withAttribute($jwtAttribute, $decodedJwt)->withAttribute($xsrfAttribute, $xsrfToken)
@@ -52,7 +50,9 @@ final class JwtDecoder implements MiddlewareInterface
 
     private function decodeJwt(string $jwt): ?object
     {
-        $secretKey = $this->config->get('project.authentication.jwt.secret', 'daikon');
+        $secretKey = $this->config->get('project.authentication.jwt.secret');
+        Assertion::notBlank($secretKey, 'A jwt secret encoding key is required.');
+
         try {
             return JWT::decode($jwt, $secretKey, ['HS256']);
         } catch (UnexpectedValueException $error) {
@@ -62,7 +62,7 @@ final class JwtDecoder implements MiddlewareInterface
 
     private function parseAuthHeader(string $header): ?string
     {
-        return preg_match('/^Bearer\s+(?<token>[a-z0-9\._-]+)$/i', $header, $matches)
+        return preg_match('/^Bearer\s+(?<token>[\w\.-]+)$/i', $header, $matches)
             ? $matches['token']
             : null;
     }

@@ -16,9 +16,4 @@ class Unauthenticated implements AuthenticatorInterface, RoleInterface
     {
         return 'unauthenticated';
     }
-
-    public function getState(): string
-    {
-        return 'unregistered';
-    }
 }

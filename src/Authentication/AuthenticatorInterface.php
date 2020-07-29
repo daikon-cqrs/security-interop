@@ -10,9 +10,4 @@ namespace Daikon\Security\Authentication;
 
 interface AuthenticatorInterface
 {
-    /**
-     * @todo consider introducing a state interface
-     * @return mixed
-     */
-    public function getState();
 }

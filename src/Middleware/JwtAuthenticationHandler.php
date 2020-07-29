@@ -43,7 +43,7 @@ final class JwtAuthenticationHandler implements MiddlewareInterface, StatusCodeI
         $authConfig = $this->config->get('project.authentication', []);
         Assertion::true(
             is_a($authConfig['default_role'], AuthenticatorInterface::class, true),
-            'Authentication default role must be an instance of '.AuthenticatorInterface::class
+            sprintf("Authentication default role must implement '%s'.", AuthenticatorInterface::class)
         );
         $jwtAttribute = $authConfig['jwt']['attribute'] ?? JwtDecoder::DEFAULT_ATTR_JWT;
         $xsrfAttribute = $authConfig['xsrf']['attribute'] ?? JwtDecoder::DEFAULT_ATTR_XSRF;
