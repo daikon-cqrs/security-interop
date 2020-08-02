@@ -224,12 +224,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/daikon-cqrs/boot.git",
-                "reference": "f964a5d5cefcac752ccb821a937286e962dfdcd9"
+                "reference": "914cd8106fe3642398cb5c35d0fa1f219cd621d2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/daikon-cqrs/boot/zipball/f964a5d5cefcac752ccb821a937286e962dfdcd9",
-                "reference": "f964a5d5cefcac752ccb821a937286e962dfdcd9",
+                "url": "https://api.github.com/repos/daikon-cqrs/boot/zipball/914cd8106fe3642398cb5c35d0fa1f219cd621d2",
+                "reference": "914cd8106fe3642398cb5c35d0fa1f219cd621d2",
                 "shasum": ""
             },
             "require": {
@@ -286,7 +286,7 @@
                 "event-sourcing",
                 "middleware"
             ],
-            "time": "2020-08-02T01:31:08+00:00"
+            "time": "2020-08-02T18:43:56+00:00"
         },
         {
             "name": "daikon/config",

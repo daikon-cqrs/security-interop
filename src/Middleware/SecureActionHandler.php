@@ -25,7 +25,7 @@ use Psr\Http\Message\ServerRequestInterface;
 
 final class SecureActionHandler extends ActionHandler
 {
-    protected function executeAction(ActionInterface $action, ServerRequestInterface $request): ResponseInterface
+    protected function execute(ActionInterface $action, ServerRequestInterface $request): ResponseInterface
     {
         try {
             // Check action access first before running validation
@@ -36,12 +36,9 @@ final class SecureActionHandler extends ActionHandler
             }
 
             if ($validator = $action->getValidator($request)) {
-                $validatorDefinition = new ValidatorDefinition('$', Severity::critical());
-                $request = $request->withAttribute(
-                    self::ATTR_PAYLOAD,
-                    $validator($validatorDefinition->withArgument($request))
-                );
-                Assertion::noContent($request->getAttribute(self::ATTR_ERRORS));
+                $validatorDefinition = (new ValidatorDefinition('$', Severity::critical()))->withArgument($request);
+                $request = $request->withAttribute(self::PAYLOAD, $validator($validatorDefinition));
+                Assertion::noContent($request->getAttribute(self::ERRORS));
             }
 
             // Run secondary resource authorization after validation
@@ -68,13 +65,9 @@ final class SecureActionHandler extends ActionHandler
                     $statusCode = self::STATUS_INTERNAL_SERVER_ERROR;
             }
             $request = $action->handleError(
-                $request->withAttribute(
-                    self::ATTR_STATUS_CODE,
-                    $request->getAttribute(self::ATTR_STATUS_CODE, $statusCode)
-                )->withAttribute(
-                    self::ATTR_ERRORS,
-                    $request->getAttribute(self::ATTR_ERRORS, $error)
-                )
+                $request
+                    ->withAttribute(self::STATUS_CODE, $request->getAttribute(self::STATUS_CODE, $statusCode))
+                    ->withAttribute(self::ERRORS, $request->getAttribute(self::ERRORS, $error))
             );
         }
 

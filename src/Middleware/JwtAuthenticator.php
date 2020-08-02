@@ -24,7 +24,7 @@ use Psr\Http\Server\RequestHandlerInterface;
 
 final class JwtAuthenticator implements MiddlewareInterface, StatusCodeInterface
 {
-    public const ATTR_AUTHENTICATOR = '_authenticator';
+    public const AUTHENTICATOR = '_authenticator';
 
     private ConfigProviderInterface $config;
 
@@ -76,13 +76,13 @@ final class JwtAuthenticator implements MiddlewareInterface, StatusCodeInterface
         }
 
         return $handler->handle(
-            $request->withAttribute(self::ATTR_AUTHENTICATOR, $authenticator ?? new $authConfig['default_role'])
+            $request->withAttribute(self::AUTHENTICATOR, $authenticator ?? new $authConfig['default_role'])
         );
     }
 
     private function isSecure(ServerRequestInterface $request): bool
     {
-        $requestHandler = $request->getAttribute(RoutingHandler::ATTR_REQUEST_HANDLER);
+        $requestHandler = $request->getAttribute(RoutingHandler::REQUEST_HANDLER);
         return $requestHandler instanceof SecureActionInterface
             ? $requestHandler->isSecure()
             : false;
