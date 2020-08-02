@@ -16,6 +16,8 @@ use Daikon\Interop\RuntimeException;
 use Daikon\Security\Exception\AuthenticationException;
 use Daikon\Security\Exception\AuthorizationException;
 use Daikon\Security\Middleware\Action\SecureActionInterface;
+use Daikon\Validize\Validation\ValidatorDefinition;
+use Daikon\Validize\ValueObject\Severity;
 use Exception;
 use Middlewares\Utils\Factory;
 use Psr\Http\Message\ResponseInterface;
@@ -33,9 +35,12 @@ final class SecureActionHandler extends ActionHandler
                 }
             }
 
-            $request = $action->registerValidator($request);
-            if ($validator = $this->getValidator($request)) {
-                $request = $validator($request);
+            if ($validator = $action->getValidator($request)) {
+                $validatorDefinition = new ValidatorDefinition('$', Severity::critical());
+                $request = $request->withAttribute(
+                    self::ATTR_PAYLOAD,
+                    $validator($validatorDefinition->withArgument($request))
+                );
                 Assertion::noContent($request->getAttribute(self::ATTR_ERRORS));
             }
 
@@ -73,12 +78,12 @@ final class SecureActionHandler extends ActionHandler
             );
         }
 
-        if (!$responder = $this->getResponder($request)) {
+        if (!$responder = $this->resolveResponder($request)) {
             throw $error ?? new RuntimeException(
                 sprintf("Unable to determine responder for '%s'.", get_class($action))
             );
         }
 
-        return $responder($request);
+        return $responder->handle($request);
     }
 }
