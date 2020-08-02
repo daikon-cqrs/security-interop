@@ -22,7 +22,7 @@ use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 
-final class JwtAuthenticationHandler implements MiddlewareInterface, StatusCodeInterface
+final class JwtAuthenticator implements MiddlewareInterface, StatusCodeInterface
 {
     public const ATTR_AUTHENTICATOR = '_authenticator';
 
