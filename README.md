@@ -5,7 +5,7 @@
 ![Packagist License](https://img.shields.io/packagist/l/daikon/security-interop)
 
 [![Build Status](https://travis-ci.com/daikon-cqrs/security-interop.svg?branch=master)](https://travis-ci.com/daikon-cqrs/security-interop)
-[![Code Coverage](https://scrutinizer-ci.com/g/daikon-cqrs/security-interop/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/daikon-cqrs/security-interop/?branch=master)
+[![Code Coverage](https://img.shields.io/codecov/c/github/daikon-cqrs/security-interop)](https://codecov.io/gh/daikon-cqrs/security-interop)
 [![Type Coverage](https://shepherd.dev/github/daikon-cqrs/security-interop/coverage.svg)](https://shepherd.dev/github/daikon-cqrs/security-interop)
 [![Libraries.io dependency status](https://img.shields.io/librariesio/github/daikon-cqrs/security-interop)](https://libraries.io/github/daikon-cqrs/security-interop)
 [![Scrutinizer code quality](https://img.shields.io/scrutinizer/quality/g/daikon-cqrs/security-interop/master)](https://scrutinizer-ci.com/g/daikon-cqrs/security-interop/?branch=master)
