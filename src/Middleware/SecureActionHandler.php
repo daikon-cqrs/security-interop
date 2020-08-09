@@ -9,6 +9,7 @@
 namespace Daikon\Security\Middleware;
 
 use Daikon\Boot\Middleware\Action\ActionInterface;
+use Daikon\Boot\Middleware\Action\DaikonRequest;
 use Daikon\Boot\Middleware\ActionHandler;
 use Daikon\Interop\Assertion;
 use Daikon\Interop\AssertionFailedException;
@@ -21,11 +22,10 @@ use Daikon\Validize\ValueObject\Severity;
 use Exception;
 use Middlewares\Utils\Factory;
 use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
 
 final class SecureActionHandler extends ActionHandler
 {
-    protected function execute(ActionInterface $action, ServerRequestInterface $request): ResponseInterface
+    protected function execute(ActionInterface $action, DaikonRequest $request): ResponseInterface
     {
         try {
             // Check action access first before running validation
@@ -37,8 +37,8 @@ final class SecureActionHandler extends ActionHandler
 
             if ($validator = $action->getValidator($request)) {
                 $validatorDefinition = (new ValidatorDefinition('$', Severity::critical()))->withArgument($request);
-                $request = $request->withAttribute(self::PAYLOAD, $validator($validatorDefinition));
-                Assertion::noContent($request->getAttribute(self::ERRORS));
+                $request = $request->withPayload($validator($validatorDefinition));
+                Assertion::noContent($request->getErrors());
             }
 
             // Run secondary resource authorization after validation
@@ -66,8 +66,8 @@ final class SecureActionHandler extends ActionHandler
             }
             $request = $action->handleError(
                 $request
-                    ->withAttribute(self::STATUS_CODE, $request->getAttribute(self::STATUS_CODE, $statusCode))
-                    ->withAttribute(self::ERRORS, $request->getAttribute(self::ERRORS, $error))
+                    ->withStatusCode($request->getStatusCode($statusCode))
+                    ->withErrors($request->getErrors($error))
             );
         }
 

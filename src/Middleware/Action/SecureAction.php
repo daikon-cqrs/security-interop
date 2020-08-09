@@ -9,11 +9,11 @@
 namespace Daikon\Security\Middleware\Action;
 
 use Daikon\Boot\Middleware\Action\Action;
-use Psr\Http\Message\ServerRequestInterface;
+use Daikon\Boot\Middleware\Action\DaikonRequest;
 
 abstract class SecureAction extends Action implements SecureActionInterface
 {
-    public function isAuthorized(ServerRequestInterface $request): bool
+    public function isAuthorized(DaikonRequest $request): bool
     {
         return false;
     }
