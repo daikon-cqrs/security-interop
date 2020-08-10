@@ -40,6 +40,11 @@ final class JwtAuthenticator implements MiddlewareInterface, StatusCodeInterface
 
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
+        $requestHandler = $request->getAttribute(RoutingHandler::REQUEST_HANDLER);
+        if (!$requestHandler instanceof SecureActionInterface) {
+            return $handler->handle($request);
+        }
+
         $authConfig = $this->config->get('project.authentication', []);
         Assertion::true(
             is_a($authConfig['default_role'], AuthenticatorInterface::class, true),
@@ -52,7 +57,7 @@ final class JwtAuthenticator implements MiddlewareInterface, StatusCodeInterface
         $xsrfToken = $request->getAttribute($xsrfAttribute);
 
         try {
-            if ($this->isSecure($request)) {
+            if ($requestHandler->isSecure($request)) {
                 if (!$jwt) {
                     throw new AuthenticationException('Missing JWT.');
                 }
@@ -78,13 +83,5 @@ final class JwtAuthenticator implements MiddlewareInterface, StatusCodeInterface
         return $handler->handle(
             $request->withAttribute(self::AUTHENTICATOR, $authenticator ?? new $authConfig['default_role'])
         );
-    }
-
-    private function isSecure(ServerRequestInterface $request): bool
-    {
-        $requestHandler = $request->getAttribute(RoutingHandler::REQUEST_HANDLER);
-        return $requestHandler instanceof SecureActionInterface
-            ? $requestHandler->isSecure()
-            : false;
     }
 }
