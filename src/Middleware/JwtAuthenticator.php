@@ -57,7 +57,7 @@ final class JwtAuthenticator implements MiddlewareInterface, StatusCodeInterface
         $xsrfToken = $request->getAttribute($xsrfAttribute);
 
         try {
-            if ($requestHandler->isSecure($request)) {
+            if ($requestHandler->isSecure()) {
                 if (!$jwt) {
                     throw new AuthenticationException('Missing JWT.');
                 }
