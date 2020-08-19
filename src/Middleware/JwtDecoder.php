@@ -33,9 +33,9 @@ final class JwtDecoder implements MiddlewareInterface
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
         $authConfig = $this->config->get('project.authentication', []);
-        $jwtAttribute = $authConfig['jwt']['attribute'] ?? self::DEFAULT_ATTR_JWT;
-        $xsrfAttribute = $authConfig['xsrf']['attribute'] ?? self::DEFAULT_ATTR_XSRF;
-        $xsrfHeader = $authConfig['xsrf']['header'] ?? self::DEFAULT_HEADER_XSRF;
+        $jwtAttribute = $authConfig['cookies']['jwt']['attribute'] ?? self::DEFAULT_ATTR_JWT;
+        $xsrfAttribute = $authConfig['cookies']['xsrf']['attribute'] ?? self::DEFAULT_ATTR_XSRF;
+        $xsrfHeader = $authConfig['cookies']['xsrf']['header'] ?? self::DEFAULT_HEADER_XSRF;
 
         $cookieParams = $request->getCookieParams();
         $encodedJwt = $cookieParams[$jwtAttribute] ?? $this->parseAuthHeader($request->getHeaderLine('Authorization'));
@@ -50,7 +50,7 @@ final class JwtDecoder implements MiddlewareInterface
 
     private function decodeJwt(string $jwt): ?object
     {
-        $secretKey = $this->config->get('project.authentication.jwt.secret');
+        $secretKey = $this->config->get('project.authentication.cookies.jwt.secret');
         Assertion::notBlank($secretKey, 'A jwt secret encoding key is required.');
 
         try {

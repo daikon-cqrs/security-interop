@@ -39,7 +39,8 @@ final class JwtDecoderTest extends TestCase
     {
         $config = $this->createMock(ConfigProviderInterface::class);
         $config->expects($this->at(0))->method('get')->with('project.authentication')->willReturn([]);
-        $config->expects($this->at(1))->method('get')->with('project.authentication.jwt.secret')->willReturn('key');
+        $config->expects($this->at(1))->method('get')->with('project.authentication.cookies.jwt.secret')
+            ->willReturn('key');
         $request = $this->createMock(ServerRequestInterface::class);
         $request->expects($this->at(0))->method('getCookieParams')->willReturn(null);
         $request->expects($this->at(1))->method('getHeaderLine')->with('Authorization')->willReturn('Bearer xyz');
@@ -62,7 +63,8 @@ final class JwtDecoderTest extends TestCase
         $decodedJwt = JWT::decode($jwt, 'key', ['HS256']);
         $config = $this->createMock(ConfigProviderInterface::class);
         $config->expects($this->at(0))->method('get')->with('project.authentication')->willReturn([]);
-        $config->expects($this->at(1))->method('get')->with('project.authentication.jwt.secret')->willReturn('key');
+        $config->expects($this->at(1))->method('get')->with('project.authentication.cookies.jwt.secret')
+            ->willReturn('key');
         $request = $this->createMock(ServerRequestInterface::class);
         $request->expects($this->at(0))->method('getCookieParams')->willReturn(null);
         $request->expects($this->at(1))->method('getHeaderLine')->with('Authorization')->willReturn("Bearer $jwt");

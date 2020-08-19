@@ -50,8 +50,8 @@ final class JwtAuthenticator implements MiddlewareInterface, StatusCodeInterface
             is_a($authConfig['default_role'], AuthenticatorInterface::class, true),
             sprintf("Authentication default role must implement '%s'.", AuthenticatorInterface::class)
         );
-        $jwtAttribute = $authConfig['jwt']['attribute'] ?? JwtDecoder::DEFAULT_ATTR_JWT;
-        $xsrfAttribute = $authConfig['xsrf']['attribute'] ?? JwtDecoder::DEFAULT_ATTR_XSRF;
+        $jwtAttribute = $authConfig['cookies']['jwt']['attribute'] ?? JwtDecoder::DEFAULT_ATTR_JWT;
+        $xsrfAttribute = $authConfig['cookies']['xsrf']['attribute'] ?? JwtDecoder::DEFAULT_ATTR_XSRF;
 
         $jwt = $request->getAttribute($jwtAttribute);
         $xsrfToken = $request->getAttribute($xsrfAttribute);
