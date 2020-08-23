@@ -61,7 +61,7 @@ final class SecureActionHandler extends ActionHandler
                     $statusCode = self::STATUS_FORBIDDEN;
                     break;
                 default:
-                    $this->logger->error($error->getMessage(), ['trace' => $error->getTrace()]);
+                    $this->logger->error($error->getMessage(), ['exception' => $error->getTrace()]);
                     $statusCode = self::STATUS_INTERNAL_SERVER_ERROR;
             }
             $request = $action->handleError(

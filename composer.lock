@@ -175,12 +175,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/daikon-cqrs/async-job.git",
-                "reference": "02bac559d32b796c5812065b370916acd92dbc61"
+                "reference": "a214404fa8caac779aa098775a9c52d8ecd0be2a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/daikon-cqrs/async-job/zipball/02bac559d32b796c5812065b370916acd92dbc61",
-                "reference": "02bac559d32b796c5812065b370916acd92dbc61",
+                "url": "https://api.github.com/repos/daikon-cqrs/async-job/zipball/a214404fa8caac779aa098775a9c52d8ecd0be2a",
+                "reference": "a214404fa8caac779aa098775a9c52d8ecd0be2a",
                 "shasum": ""
             },
             "require": {
@@ -216,7 +216,7 @@
                 "strategy",
                 "worker"
             ],
-            "time": "2020-08-17T19:03:09+00:00"
+            "time": "2020-08-22T17:40:49+00:00"
         },
         {
             "name": "daikon/boot",
@@ -224,12 +224,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/daikon-cqrs/boot.git",
-                "reference": "be26f53c49392ff06644f7ccd3da21b0e1851ac5"
+                "reference": "e8c81a10f5836d81f1e0255dc15f13bdf2ba5dfe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/daikon-cqrs/boot/zipball/be26f53c49392ff06644f7ccd3da21b0e1851ac5",
-                "reference": "be26f53c49392ff06644f7ccd3da21b0e1851ac5",
+                "url": "https://api.github.com/repos/daikon-cqrs/boot/zipball/e8c81a10f5836d81f1e0255dc15f13bdf2ba5dfe",
+                "reference": "e8c81a10f5836d81f1e0255dc15f13bdf2ba5dfe",
                 "shasum": ""
             },
             "require": {
@@ -286,7 +286,7 @@
                 "event-sourcing",
                 "middleware"
             ],
-            "time": "2020-08-17T20:17:39+00:00"
+            "time": "2020-08-23T00:38:50+00:00"
         },
         {
             "name": "daikon/config",
@@ -430,12 +430,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/daikon-cqrs/dbal.git",
-                "reference": "f69d7008c0e2d0746838e8d42dda4c16001fe169"
+                "reference": "9ba8f9a6a3bb95c813c93abc7425e020ae0ca3a3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/daikon-cqrs/dbal/zipball/f69d7008c0e2d0746838e8d42dda4c16001fe169",
-                "reference": "f69d7008c0e2d0746838e8d42dda4c16001fe169",
+                "url": "https://api.github.com/repos/daikon-cqrs/dbal/zipball/9ba8f9a6a3bb95c813c93abc7425e020ae0ca3a3",
+                "reference": "9ba8f9a6a3bb95c813c93abc7425e020ae0ca3a3",
                 "shasum": ""
             },
             "require": {
@@ -468,7 +468,7 @@
                 "dbal",
                 "immutable"
             ],
-            "time": "2020-08-17T19:29:43+00:00"
+            "time": "2020-08-22T22:20:22+00:00"
         },
         {
             "name": "daikon/elasticsearch7-adapter",
@@ -695,12 +695,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/daikon-cqrs/message-bus.git",
-                "reference": "338ae517e225d2e542613b3728aaa7f7934700d3"
+                "reference": "3da3730fe5f09ee5599e60807e86d92821769e6f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/daikon-cqrs/message-bus/zipball/338ae517e225d2e542613b3728aaa7f7934700d3",
-                "reference": "338ae517e225d2e542613b3728aaa7f7934700d3",
+                "url": "https://api.github.com/repos/daikon-cqrs/message-bus/zipball/3da3730fe5f09ee5599e60807e86d92821769e6f",
+                "reference": "3da3730fe5f09ee5599e60807e86d92821769e6f",
                 "shasum": ""
             },
             "require": {
@@ -732,7 +732,7 @@
                 "message-bus",
                 "messaging"
             ],
-            "time": "2020-08-17T18:16:53+00:00"
+            "time": "2020-08-22T21:51:47+00:00"
         },
         {
             "name": "daikon/metadata",
@@ -783,12 +783,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/daikon-cqrs/rabbitmq3-adapter.git",
-                "reference": "fac8d6ef28ebdb8d87116c8300c7ba6212b67a27"
+                "reference": "c2996638c0edaaaf91e8b60fcefc976caab6a806"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/daikon-cqrs/rabbitmq3-adapter/zipball/fac8d6ef28ebdb8d87116c8300c7ba6212b67a27",
-                "reference": "fac8d6ef28ebdb8d87116c8300c7ba6212b67a27",
+                "url": "https://api.github.com/repos/daikon-cqrs/rabbitmq3-adapter/zipball/c2996638c0edaaaf91e8b60fcefc976caab6a806",
+                "reference": "c2996638c0edaaaf91e8b60fcefc976caab6a806",
                 "shasum": ""
             },
             "require": {
@@ -822,7 +822,7 @@
                 "adapter",
                 "rabbitmq3"
             ],
-            "time": "2020-08-17T19:42:22+00:00"
+            "time": "2020-08-22T22:34:36+00:00"
         },
         {
             "name": "daikon/read-model",
@@ -7114,16 +7114,16 @@
         },
         {
             "name": "vimeo/psalm",
-            "version": "3.14.1",
+            "version": "3.14.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vimeo/psalm.git",
-                "reference": "9822043ca46d6682b76097bfa97d7c450eef9e90"
+                "reference": "3538fe1955d47f6ee926c0769d71af6db08aa488"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vimeo/psalm/zipball/9822043ca46d6682b76097bfa97d7c450eef9e90",
-                "reference": "9822043ca46d6682b76097bfa97d7c450eef9e90",
+                "url": "https://api.github.com/repos/vimeo/psalm/zipball/3538fe1955d47f6ee926c0769d71af6db08aa488",
+                "reference": "3538fe1955d47f6ee926c0769d71af6db08aa488",
                 "shasum": ""
             },
             "require": {
@@ -7207,7 +7207,7 @@
                 "inspection",
                 "php"
             ],
-            "time": "2020-08-17T19:48:48+00:00"
+            "time": "2020-08-22T14:01:26+00:00"
         },
         {
             "name": "webmozart/assert",
