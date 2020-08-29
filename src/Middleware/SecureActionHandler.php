@@ -13,13 +13,13 @@ use Daikon\Boot\Middleware\Action\DaikonRequest;
 use Daikon\Boot\Middleware\ActionHandler;
 use Daikon\Interop\Assertion;
 use Daikon\Interop\AssertionFailedException;
+use Daikon\Interop\DaikonException;
 use Daikon\Interop\RuntimeException;
 use Daikon\Security\Exception\AuthenticationException;
 use Daikon\Security\Exception\AuthorizationException;
 use Daikon\Security\Middleware\Action\SecureActionInterface;
 use Daikon\Validize\Validation\ValidatorDefinition;
 use Daikon\Validize\ValueObject\Severity;
-use Exception;
 use Middlewares\Utils\Factory;
 use Psr\Http\Message\ResponseInterface;
 
@@ -49,7 +49,7 @@ final class SecureActionHandler extends ActionHandler
             }
 
             $request = $action($request);
-        } catch (Exception $error) {
+        } catch (DaikonException $error) {
             switch (true) {
                 case $error instanceof AssertionFailedException:
                     $statusCode = self::STATUS_UNPROCESSABLE_ENTITY;
