@@ -13,7 +13,7 @@
         "daikon/config": "master@dev",
         "daikon/interop": "master@dev",
         "firebase/php-jwt": "^5.0",
-        "laminas/laminas-permissions-acl": "^2.7"
+        "laminas/laminas-permissions-acl": "2.7.1"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.3",

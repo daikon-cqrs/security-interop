@@ -80,6 +80,7 @@ final class JwtAuthenticator implements MiddlewareInterface, StatusCodeInterface
             return Factory::createResponse(self::STATUS_UNAUTHORIZED);
         }
 
+        /** @psalm-suppress UndefinedClass */
         return $handler->handle(
             $request->withAttribute(self::AUTHENTICATOR, $authenticator ?? new $authConfig['default_role'])
         );
