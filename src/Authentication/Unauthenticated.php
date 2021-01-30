@@ -12,8 +12,10 @@ use Laminas\Permissions\Acl\Role\RoleInterface;
 
 class Unauthenticated implements AuthenticatorInterface, RoleInterface
 {
+    public const UNAUTHENTICATED = 'unauthenticated';
+
     public function getRoleId(): string
     {
-        return 'unauthenticated';
+        return self::UNAUTHENTICATED;
     }
 }
