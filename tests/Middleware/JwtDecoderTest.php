@@ -38,15 +38,20 @@ final class JwtDecoderTest extends TestCase
     public function testHeaderAuthWithInvalidJwt(): void
     {
         $config = $this->createMock(ConfigProviderInterface::class);
-        $config->expects($this->at(0))->method('get')->with('project.authentication')->willReturn([]);
-        $config->expects($this->at(1))->method('get')->with('project.authentication.cookies.jwt.secret')
-            ->willReturn('key');
+        $config->expects($this->exactly(2))
+            ->method('get')
+            ->withConsecutive(['project.authentication'], ['project.authentication.cookies.jwt.secret'])
+            ->willReturnOnConsecutiveCalls([], 'key');
         $request = $this->createMock(ServerRequestInterface::class);
-        $request->expects($this->at(0))->method('getCookieParams')->willReturn(null);
-        $request->expects($this->at(1))->method('getHeaderLine')->with('Authorization')->willReturn('Bearer xyz');
-        $request->expects($this->at(2))->method('getHeaderLine')->with('X-XSRF-TOKEN')->willReturn('xsrf');
-        $request->expects($this->at(3))->method('withAttribute')->with('__Host-_jwt', null)->willReturnSelf();
-        $request->expects($this->at(4))->method('withAttribute')->with('__Host-_xsrf', 'xsrf')->willReturnSelf();
+        $request->expects($this->once())->method('getCookieParams')->willReturn(null);
+        $request->expects($this->exactly(2))
+            ->method('getHeaderLine')
+            ->withConsecutive(['Authorization'], ['X-XSRF-TOKEN'])
+            ->willReturnOnConsecutiveCalls('Bearer xyz', 'xsrf');
+        $request->expects($this->exactly(2))
+            ->method('withAttribute')
+            ->withConsecutive(['__Host-_jwt', null], ['__Host-_xsrf', 'xsrf'])
+            ->willReturnSelf();
         $handler = $this->createMock(RequestHandlerInterface::class);
         /**
          * @var ConfigProviderInterface $config
@@ -62,15 +67,20 @@ final class JwtDecoderTest extends TestCase
         $jwt = JWT::encode(['iss' => 'test', 'xsrf' => 'xsrf'], 'key');
         $decodedJwt = JWT::decode($jwt, 'key', ['HS256']);
         $config = $this->createMock(ConfigProviderInterface::class);
-        $config->expects($this->at(0))->method('get')->with('project.authentication')->willReturn([]);
-        $config->expects($this->at(1))->method('get')->with('project.authentication.cookies.jwt.secret')
-            ->willReturn('key');
+        $config->expects($this->exactly(2))
+            ->method('get')
+            ->withConsecutive(['project.authentication'], ['project.authentication.cookies.jwt.secret'])
+            ->willReturnOnConsecutiveCalls([], 'key');
         $request = $this->createMock(ServerRequestInterface::class);
-        $request->expects($this->at(0))->method('getCookieParams')->willReturn(null);
-        $request->expects($this->at(1))->method('getHeaderLine')->with('Authorization')->willReturn("Bearer $jwt");
-        $request->expects($this->at(2))->method('getHeaderLine')->with('X-XSRF-TOKEN')->willReturn('xsrf');
-        $request->expects($this->at(3))->method('withAttribute')->with('__Host-_jwt', $decodedJwt)->willReturnSelf();
-        $request->expects($this->at(4))->method('withAttribute')->with('__Host-_xsrf', 'xsrf')->willReturnSelf();
+        $request->expects($this->once())->method('getCookieParams')->willReturn(null);
+        $request->expects($this->exactly(2))
+            ->method('getHeaderLine')
+            ->withConsecutive(['Authorization'], ['X-XSRF-TOKEN'])
+            ->willReturnOnConsecutiveCalls("Bearer $jwt", 'xsrf');
+        $request->expects($this->exactly(2))
+            ->method('withAttribute')
+            ->withConsecutive(['__Host-_jwt', $decodedJwt], ['__Host-_xsrf', 'xsrf'])
+            ->willReturnSelf();
         $handler = $this->createMock(RequestHandlerInterface::class);
         /**
          * @var ConfigProviderInterface $config
