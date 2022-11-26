@@ -242,12 +242,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/daikon-cqrs/boot.git",
-                "reference": "8cba1d0e5fedce09268f333b88cec61953f02fd8"
+                "reference": "7971c76230c50f9ef19533198aebac0ebfbee2b6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/daikon-cqrs/boot/zipball/8cba1d0e5fedce09268f333b88cec61953f02fd8",
-                "reference": "8cba1d0e5fedce09268f333b88cec61953f02fd8",
+                "url": "https://api.github.com/repos/daikon-cqrs/boot/zipball/7971c76230c50f9ef19533198aebac0ebfbee2b6",
+                "reference": "7971c76230c50f9ef19533198aebac0ebfbee2b6",
                 "shasum": ""
             },
             "require": {
@@ -272,7 +272,7 @@
                 "middlewares/request-handler": "^2.0",
                 "middlewares/whoops": "^2.0",
                 "monolog/monolog": "^2.0",
-                "php": "^7.4|^8.0",
+                "php": "^8.0",
                 "psr/container": "^1.0",
                 "psr/log": "^1.0",
                 "rdlowrey/auryn": "^1.4",
@@ -311,9 +311,9 @@
             ],
             "support": {
                 "issues": "https://github.com/daikon-cqrs/boot/issues",
-                "source": "https://github.com/daikon-cqrs/boot/tree/v0.4"
+                "source": "https://github.com/daikon-cqrs/boot/tree/master"
             },
-            "time": "2021-02-13T18:46:22+00:00"
+            "time": "2022-11-26T13:33:13+00:00"
         },
         {
             "name": "daikon/config",
@@ -865,12 +865,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/daikon-cqrs/rabbitmq3-adapter.git",
-                "reference": "1ed7c78e9f85fff7a8096e97069bc3adac98f1b2"
+                "reference": "f6a76a10d124fdcc8b908cbf73858e63ba042486"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/daikon-cqrs/rabbitmq3-adapter/zipball/1ed7c78e9f85fff7a8096e97069bc3adac98f1b2",
-                "reference": "1ed7c78e9f85fff7a8096e97069bc3adac98f1b2",
+                "url": "https://api.github.com/repos/daikon-cqrs/rabbitmq3-adapter/zipball/f6a76a10d124fdcc8b908cbf73858e63ba042486",
+                "reference": "f6a76a10d124fdcc8b908cbf73858e63ba042486",
                 "shasum": ""
             },
             "require": {
@@ -879,7 +879,7 @@
                 "daikon/interop": "master@dev",
                 "daikon/message-bus": "master@dev",
                 "guzzlehttp/guzzle": "^7.0",
-                "php": "^7.4|^8.0",
+                "php": "^8.0",
                 "php-amqplib/php-amqplib": "^2.8"
             },
             "require-dev": {
@@ -907,9 +907,9 @@
             ],
             "support": {
                 "issues": "https://github.com/daikon-cqrs/rabbitmq3-adapter/issues",
-                "source": "https://github.com/daikon-cqrs/rabbitmq3-adapter/tree/v0.4"
+                "source": "https://github.com/daikon-cqrs/rabbitmq3-adapter/tree/master"
             },
-            "time": "2021-02-13T18:13:20+00:00"
+            "time": "2022-11-26T13:29:29+00:00"
         },
         {
             "name": "daikon/read-model",
